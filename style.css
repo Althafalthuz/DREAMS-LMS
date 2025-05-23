@@ -635,7 +635,7 @@ section{
    .course-content {
     position: relative;
 
-    left: -3.2rem;
+    padding-left: -4rem;
     }
 .cta-content {
    
