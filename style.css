@@ -18,80 +18,63 @@
     --p-font: 1.1rem;
 }
 
-body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
 
     /* Header section */
+body {
+    background-color: var(--bg-color);
+    font-family: cursive;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 30px;
+    color: var(--text-color);
 }
 
-header {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    right: 0;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: transparent;
-    padding: 23px 13%;
-    transition: all 0.4s ease;
-}
+/* Navbar section */
 
-header.sticky {
-    background: var(--bg-color);
-    padding: 12px 13%;
-    box-shadow: 0 4px 15px rgba(0 0 0 / 8%);
+#header {
+   background: linear-gradient(90deg, #e9c1e4 0%, #b8cbe783 100%);
+    overflow: hidden;
 }
-
-.logo img {
-    height: auto;
-    width: 160px;
-}
-
-/* nav bar */
 .navbar {
-    display: flex;
+    padding: 15px 0;
 }
-
+.navbar-brand {
+    
+}
 .navbar a {
-    color: var(--text-color);
-    font-weight: 600;
-    font-size: var(--p-font);
-    padding: 10px 22px;
-    transition: all 0.4s ease;
+    text-decoration: none;
 }
 
-.navbar a:hover {
+.logo img{
+   width: 250px;
+}
+#navbarSupportedContent {
+    justify-content: center;
+    
+}
+ul.navbar-nav li.nav-item {
+    margin-right: 25px;
+}
+ul.navbar-nav li.nav-item:last-child {
+    margin-right: 0;
+}
+ul.navbar-nav li.nav-item a.nav-link {
+    color: var(--text-color);
+}
+.navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .show>.nav-link {
+    color: var(--main-color);
+}
+ul.navbar-nav li.nav-item a.nav-link:hover {
     color: var(--main-color);
 }
 
-.header-icon {
-    display: flex;
-    align-items: center;
-}
 
-.header-icon i {
-    margin-left: 10px;
-    font-size: 24px;
-    color: var(--text-color);
-    transition: all 0.4s ease;
-    margin-right: 15px;
-}
 
-.header-icon i:hover {
-    transform: scale(1.2);
-    color: var(--main-color);
-}
 
-#menu-icon {
-    font-size: 34px;
-    color: var(--text-color);
-    z-index: 1000;
-    cursor: pointer;
-    display: none;
-}
+
+
+
+ 
 
 section {
     padding: 80px 13%;
@@ -308,6 +291,7 @@ section {
 }
 .btn:hover {
     transform: scale(0.9) translateY(-5px);
+    transition: all 0.4s ease-in-out;
 }
 
 
@@ -469,63 +453,18 @@ section {
 /* Contact-form section */
 
 
-.form-box{
- flex: 0 0 100%;
-}
-
-.form-box h2{
- padding: 2rem;
-}
+/* popup section */
 
 
-.contact-form {
 
-    border: 1px solid var(--second-color);
-    padding: 35px;
-    border-radius: 20px;
-}
+  .popup.show {
+    opacity: 1;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
 
-.contact-form .col-6 {
-   
-  flex: 0 0 100%;
-    max-width: 100%;
-    
-}
-
-.contact-form .col-12 {
-    flex: 0 0 100%;
-    max-width: 100%;
-   
-}
-
-.contact-form .form-item {
-    margin-bottom: 30px;
-}
-
-.btn{
-    border: none;
-}
-
-.contact-form .form-control {
-    width: 80%;
-    height: 50px;
-    border-radius: 10px;
-    border: 1px solid var(--second-color);
-    background-color: var(--bg-color);
-    padding: 10px 25px;
-    font-size: 16px;
-    color: var(--text-black-700);
-    transition: all 0.3s ease;
-
-}
-
-.contact-form .form-control:focus {
-    box-shadow: 0 0 20px rgba(48, 46, 77, 0.15);
-}
-
-.contact-form textarea.form-control {
-    height: 140px;
-}
+  .popup.hidden {
+    display: none;
+  }
 
 
 
@@ -564,6 +503,7 @@ section {
     font-size: 15px;
      cursor: pointer;
     transition: all .40s ease;
+    text-decoration: none;
 }
 
 .contact-content a:hover{
@@ -582,15 +522,6 @@ section {
 
 
 @media (max-width:1410px){
-    header{
-     padding: 10px 3%;
-     transition: .2s;
-    }
-
-    header.sticky{
-        padding: 12px 3%;
-        transition: .2s;
-    }
 
 section{
     padding: 70px;
@@ -636,38 +567,7 @@ section{
 
 @media (max-width:1025px){
 
-    #menu-icon{
-        display: block;
-    }
-
-    .navbar{
-        position: absolute;
-        top: 100%;
-        right: -100%;
-        width: 300px;
-        height: 110vh;
-        background: var(--bg-color);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 100px 30px;
-        transition: all .40s ease;
-    }
-
-     .navbar a{
-       display: block;
-       margin: 1.3rem 0;
-       color: var(--text-color);
-    }
-
-     .navbar a:hover{
-       color: var(--main-color);
-       transform: translateY(-5px);
-    }
-
-    .navbar.open{
-        right: 0;
-    }
+    
      .contact{
         display: flex;
         align-items: center;
