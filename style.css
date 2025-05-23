@@ -624,3 +624,26 @@ section{
        
     }
 }
+
+@media (max-width:450px){
+.row {
+   
+   display: block;
+   position: relative;
+   left: -2rem;
+  
+}
+
+.cta-content {
+   
+   position: relative;
+    left: 5rem;
+  
+}
+.cta-content img{
+   
+   position: relative;
+    gap: 3rem;
+  
+}
+}
