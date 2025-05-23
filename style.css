@@ -630,14 +630,14 @@ section{
    
    display: block;
    position: relative;
-   left: -2rem;
+   left: -3.2rem;
   
 }
 
 .cta-content {
    
    position: relative;
-    left: 5rem;
+    left: 4rem;
   
 }
 .cta-content img{
@@ -647,27 +647,3 @@ section{
   
 }
 }
-
-@media (max-width:350px){
-.row {
-   
-   display: block;
-   position: relative;
-   left: -2rem;
-  
-}
-
-.cta-content {
-   
-   position: relative;
-    left: 5rem;
-  
-}
-.cta-content img{
-   
-   position: relative;
-    gap: 3rem;
-  
-}
-}
-
