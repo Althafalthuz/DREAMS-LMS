@@ -632,7 +632,11 @@ section{
 
 @media (max-width:450px){
 
-
+    .course-content {
+    position: relative;
+    
+    left: -3.2rem;
+}
 .cta-content {
    
    position: relative;
