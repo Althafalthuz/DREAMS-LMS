@@ -1,53 +1,87 @@
-const header = document.querySelector("header");
+/*----- popup-success ------*/
 
-window.addEventListener("scroll", function(){
-    header.classList.toggle("sticky", this.window.scrollY > 0);
+function showPopup() {
+  const popup = document.getElementById('popup');
+  popup.classList.remove('hidden');
+  popup.classList.add('show');
 
-});
-
-let menu= document.querySelector('#menu-icon');
-let navbar=document.querySelector('.navbar');
-
-menu.onclick = () => {
-    menu.classList.toggle('bx-x');
-    navbar.classList.toggle('open');
-
-};
-window.onscroll = () => {
-    menu.classList.remove('bx-x');
-    navbar.classList.remove('open');
-};
+  // Hide after 3 seconds
+  setTimeout(() => {
+    popup.classList.remove('show');
+    setTimeout(() => popup.classList.add('hidden'), 400);
+  }, 3000);
+}
 
 
 /* Email JS */
 
 
 
+function sendMail() {
+  
+  const name = document.getElementById("name");
+  const email = document.getElementById("email");
+  const subject = document.getElementById("subject");
+  const message = document.getElementById("message");
 
-function sendMail(){
-    var params = {
-        name:document.getElementById("name").value,
-        email:document.getElementById("email").value,
-        subject:document.getElementById("subject").value,
-        message:document.getElementById("message").value
-
-    };
+  
+  [name, email, subject, message].forEach((field) => {
+    field.classList.remove("is-invalid");
+  });
 
 
-const serviceID = "service_a8jubza";
-const templateID = "template_2jehyrl";
+  let isValid = true;
 
-emailjs.send(serviceID,templateID,params)
-.then( (res) => {
-    document.getElementById("name").value = "";
-    document.getElementById("email").value = "";
-    document.getElementById("subject").value = "";
-    document.getElementById("message").value = "";
-    console.log(res);
-    alert("Your message sent successfully");
-})
+  if (!name.value.trim()) {
+    name.classList.add("is-invalid");
+    isValid = false;
+  }
 
-.catch((err) => console.log(err));
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!email.value.trim() || !emailPattern.test(email.value)) {
+    email.classList.add("is-invalid");
+    isValid = false;
+  }
 
+  if (!subject.value.trim()) {
+    subject.classList.add("is-invalid");
+    isValid = false;
+  }
+
+  if (!message.value.trim()) {
+    message.classList.add("is-invalid");
+    isValid = false;
+  }
+
+  // If any field is invalid, stop the process
+  if (!isValid) {
+    return;
+  }
+
+  // Prepare email parameters
+  const params = {
+    name: name.value,
+    email: email.value,
+    subject: subject.value,
+    message: message.value,
+  };
+
+  const serviceID = "service_a8jubza";
+  const templateID = "template_2jehyrl";
+
+  emailjs.send(serviceID, templateID, params)
+    .then((res) => {
+      // Clear the form
+      name.value = "";
+      email.value = "";
+      subject.value = "";
+      message.value = "";
+
+      // Show success popup
+      showPopup();
+    })
+    .catch((err) => {
+      console.log("EmailJS Error:", err);
+    });
 }
 
