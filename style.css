@@ -631,7 +631,13 @@ section{
 
 
 @media (max-width:450px){
-
+.row {
+   
+   display: block;
+   position: relative;
+   left: -2rem;
+  
+}
 
 .cta-content {
    
