@@ -32,8 +32,10 @@ body {
 /* Navbar section */
 
 #header {
-   background: linear-gradient(90deg, #e9c1e4 0%, #b8cbe783 100%);
-    overflow: hidden;
+  position: fixed;
+  background-color: var(--bg-color);
+  width: 100%;
+    z-index: 1000;
 }
 .navbar {
     padding: 15px 0;
@@ -290,8 +292,9 @@ section {
     transition: all 0.4s ease;
 }
 .btn:hover {
-    transform: scale(0.9) translateY(-5px);
-    transition: all 0.4s ease-in-out;
+    transform: scale(1.02);
+   transition: all 0.4s ease;
+   background-color: #e28883;
 }
 
 
@@ -326,7 +329,7 @@ section {
 
 .row:hover{
      color: var(--main-color);
-    background-color: rgb(38, 3, 10);
+    background-color: rgba(38, 3, 10, 0.497);
 
 }
 
@@ -377,11 +380,11 @@ section {
 }
 .btn-sec{
     color: #696969;
-    background-color: var(--bg-color);
+   
     font-size: var(--p-font);
     font-weight: 500;
     letter-spacing: 1px;
-    border: 1px solid var(--text-color);
+   
     padding: 10px;
     border-radius: 30px;
     transition: all .40s ease;
@@ -617,6 +620,7 @@ section{
         height: 120vh;
     }
 
+
     .contact{
         display: flex;
         align-items: center;
@@ -624,6 +628,7 @@ section{
        
     }
 }
+
 
 @media (max-width:450px){
 .row {
@@ -647,3 +652,4 @@ section{
   
 }
 }
+
